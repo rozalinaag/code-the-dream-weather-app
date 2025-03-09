@@ -10,7 +10,7 @@ const fetchWeather = async (city) => {
     const data = await response.json();
 
     const weatherCode = data.current_weather?.weathercode ?? 0;
-    const weatherIcon = weatherIcons[weatherCode] || '❓'; // Default if unknown code and doesn't have icon
+    const weatherIcon = weatherIcons[weatherCode] || '❓'; // Default if unknown code
 
     return {
       name: city.name,
@@ -40,10 +40,9 @@ const displayWeather = async () => {
     .map(
       (city) => `
       <div class="city-weather">
-          <p><strong>${city.name}</strong></p>
-          <p>Current temperature: ${city.temp}°F</p>
-          <p>Current temperature: ${city.icon}</p>
-          <a href="#" onclick="loadCity('${city.name}')">Read more</a>
+          <div class="city"><strong>${city.name}</strong></div>
+          <div>Current temperature: <strong class="temp">${city.temp}°F</strong> ${city.icon}</div>
+          <a class="read" href="#" onclick="loadCity('${city.name}')">Read more</a>
       </div>
   `
     )
@@ -56,9 +55,9 @@ const loadCity = async (cityName) => {
   const data = await fetchWeather(city);
   document.getElementById('weather-container').innerHTML = `
       <h2>${data.name}</h2>
-      <p>Current temperature: ${data.temp}°C</p>
-      <p>Maximum: ${data.maxTemp}°F</p>
-      <p>Minimum: ${data.minTemp}°F</p>
+      <div>Current temperature: ${data.temp}°C</div>
+      <div>Maximum: ${data.maxTemp}°F</div>
+      <div>Minimum: ${data.minTemp}°F</div>
       <a href="#" onclick="displayWeather()">Back</a>
   `;
 };

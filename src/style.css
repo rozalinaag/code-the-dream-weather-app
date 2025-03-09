@@ -3,6 +3,7 @@
 
 body {
   --background: #2c3247;
+  background-color: #e5eaf2;
 }
 
 .header {
@@ -23,5 +24,28 @@ body {
 }
 
 .city-weather {
-  margin-bottom: 10px;
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  font-size: 22px;
+  background-color: white;
+  border-radius: 6px;
+  color: black;
+  gap: 40x;
+  padding: 20px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.city {
+  width: 200px;
+  font-size: 28px;
+}
+
+.read {
+  width: 200px;
+  text-align: end;
+}
+
+.temp {
+  font-size: 24px;
 }

@@ -13,6 +13,5 @@ export const cities = [
   { name: 'San Diego', lat: 32.7157, lon: -117.1611 },
   { name: 'Atlanta', lat: 33.749, lon: -84.388 },
   { name: 'Austin', lat: 30.2672, lon: -97.7431 },
-  { name: 'Washington, D.C.', lat: 38.9072, lon: -77.0369 },
   { name: 'Minneapolis', lat: 44.9778, lon: -93.265 },
 ];
