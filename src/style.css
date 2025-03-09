@@ -1,10 +1,24 @@
+@import url('./reset.css');
+@import url('./footer.css');
+
 body {
-  font-family: Arial, sans-serif;
+  --background: #2c3247;
+}
+
+.header {
+  background-color: var(--background);
+  color: white;
+  padding: 20px 0;
   text-align: center;
 }
 
 #weather-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .city-weather {
