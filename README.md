@@ -7,5 +7,6 @@ Run project:
 - npm run dev
 
 Main page:
+![image](https://github.com/user-attachments/assets/b5365377-559f-4fb5-be07-dad4a238bc75)
 
 
