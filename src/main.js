@@ -1,12 +1,5 @@
 import './style.css';
-
-const cities = [
-  { name: 'New York', lat: 40.7128, lon: -74.006 },
-  { name: 'Los Angeles', lat: 34.0522, lon: -118.2437 },
-  { name: 'Chicago', lat: 41.8781, lon: -87.6298 },
-  { name: 'Houston', lat: 29.7604, lon: -95.3698 },
-  { name: 'Miami', lat: 25.7617, lon: -80.1918 },
-];
+import { cities } from './cities';
 
 const fetchWeather = async (city) => {
   const url = `https://api.open-meteo.com/v1/forecast?latitude=${city.lat}&longitude=${city.lon}&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min&current_weather=true&timezone=auto`;
