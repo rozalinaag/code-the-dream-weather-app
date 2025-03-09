@@ -1,5 +1,11 @@
-Weather App for Code the Dream
+# Weather App for Code the Dream
 
-to run project:
-npm install
-npm run dev
+## Project deployed on Vercel: https://code-the-dream-weather-app-git-master-rozalinaags-projects.vercel.app
+
+Run project:
+- npm install 
+- npm run dev
+
+Main page:
+
+
