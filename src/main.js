@@ -1,6 +1,6 @@
-import './style.css';
 import { cities } from './cities';
 import { weatherIcons } from './weatherIcons';
+import { loading } from './loader/loader';
 
 const fetchWeather = async (city) => {
   const url = `https://api.open-meteo.com/v1/forecast?latitude=${city.lat}&longitude=${city.lon}&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min&current_weather=true&timezone=auto&temperature_unit=fahrenheit`;
@@ -14,6 +14,7 @@ const fetchWeather = async (city) => {
 
     return {
       name: city.name,
+      image: city.image,
       temp: data.current_weather?.temperature ?? 'N/A',
       maxTemp: data.daily?.temperature_2m_max?.[0] ?? 'N/A',
       minTemp: data.daily?.temperature_2m_min?.[0] ?? 'N/A',
@@ -24,6 +25,7 @@ const fetchWeather = async (city) => {
 
     return {
       name: city.name,
+      image: city.image,
       temp: 'N/A',
       maxTemp: 'N/A',
       minTemp: 'N/A',
@@ -34,7 +36,7 @@ const fetchWeather = async (city) => {
 
 const displayWeather = async () => {
   const container = document.getElementById('weather-container');
-  container.innerHTML = '<p>Loading...</p>';
+  container.innerHTML = loading;
   const weatherData = await Promise.all(cities.map(fetchWeather));
   container.innerHTML = weatherData
     .map(
@@ -54,11 +56,14 @@ const loadCity = async (cityName) => {
   if (!city) return;
   const data = await fetchWeather(city);
   document.getElementById('weather-container').innerHTML = `
-      <h2>${data.name}</h2>
-      <div>Current temperature: ${data.temp}°C</div>
-      <div>Maximum: ${data.maxTemp}°F</div>
-      <div>Minimum: ${data.minTemp}°F</div>
-      <a href="#" onclick="displayWeather()">Back</a>
+      <div class="info-city">${data.name}</div>
+      <div class="info">
+       <div>Current temperature: <strong>${data.temp}°F</strong></div>
+       <div>Maximum: <strong>${data.maxTemp}°F</strong> </div>
+       <div>Minimum: <strong>${data.minTemp}°F</strong></div>
+      </div>
+      <img class="city-image" src=${data.image} alt="city">
+      <a class="button" href="#" onclick="displayWeather()">Back</a>
   `;
 };
 

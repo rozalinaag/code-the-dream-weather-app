@@ -1,0 +1,30 @@
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.loader div {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 6px;
+  padding: 20px;
+  height: 71px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite ease-in-out;
+}
+
+@keyframes loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
